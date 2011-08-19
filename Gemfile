@@ -32,6 +32,7 @@ end
 gem 'thin'
 gem 'haml', '~> 3.1.2'
 gem 'jquery-rails'
+gem 'hoptoad_notifier', '~> 2.4.11'
 
 
 
