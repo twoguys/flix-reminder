@@ -6,7 +6,6 @@ gem 'rails', '3.1.0.rc6'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -15,8 +14,27 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'haml-rails'
+group :development do
+  gem 'heroku'
+  gem 'haml-rails'
+  gem 'haml-rails'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'rails3-generators'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'cucumber-rails'
+  gem 'capybara'
+end
+
+
+gem 'haml', '~> 3.1.2'
 gem 'jquery-rails'
+
+
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
