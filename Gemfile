@@ -29,7 +29,7 @@ group :test do
   gem 'capybara'
 end
 
-
+gem 'thin'
 gem 'haml', '~> 3.1.2'
 gem 'jquery-rails'
 
