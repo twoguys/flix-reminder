@@ -33,7 +33,8 @@ gem 'haml',                 '~> 3.1.2'
 gem 'jquery-rails',         '~> 1.0.13'
 gem 'hoptoad_notifier',     '~> 2.4.11'
 gem 'mongo_mapper',         '~> 0.9.1'
-gem 'omniauth',             '~> 0.2.6'
+gem 'oa-core'
+gem 'oa-oauth'
 
 
 
