@@ -1,0 +1,28 @@
+!!!
+%html{html_attrs('en')}
+  %head
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
+    %meta{ :name => "Description", "http-equiv" => "Description", :content => "Forget to change your Netflix queue? Does a movie show up you no longer want?" }
+    %meta{ :name => "Keywords", "http-equiv" => "Keywords", :content => "netflix, reminder, movies, flixreminder, queue" }
+    %link{ :id => 'favicon', :href => '/images/favicon.png', :rel => 'icon', :type => 'image/x-icon' }
+    %title
+      - if @page_title
+        = "FlixReminder - #{@page_title}"
+      - else
+        FlixReminder
+      
+    = csrf_meta_tag
+    
+    = javascript_include_tag "application"
+    = javascript_include_tag "http://use.typekit.com/bxp4ehb.js"
+    :javascript
+      Typekit.load();}catch(e){}
+      
+    = stylesheet_link_tag "application"
+  
+  %body
+  
+    %header
+      %h1#logo Flix Reminder
+      
+    = yield

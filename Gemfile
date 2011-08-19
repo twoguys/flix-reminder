@@ -17,7 +17,6 @@ end
 group :development do
   gem 'heroku'
   gem 'haml-rails'
-  gem 'haml-rails'
 end
 
 group :test do
