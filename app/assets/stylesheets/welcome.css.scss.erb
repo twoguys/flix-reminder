@@ -1,0 +1,74 @@
+@import "colors.css.scss";
+
+section.phone {
+	width: 370px;
+	height: 536px;
+	background: transparent url(<%= asset_path 'iphone.png' %>) no-repeat;
+}
+
+section.explanation {
+	background: transparent url(<%= asset_path 'text.png' %>) no-repeat;
+	h2 {
+		display: none;
+	}
+}
+
+#form-backer {
+	background: $light_grey;
+	width: 380px;
+	position: absolute;
+	top: -160px;
+	left: 400px;
+	height: 160px;
+	@include boxshadow;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+form#signup {
+	position: absolute;
+	top: -130px;
+	left: 450px;
+	width: 280px;
+	height: 100px;
+	label {
+		font-size: 20px;
+		font-weight: 300;
+		font-style: italic;
+		margin-bottom: 10px;
+		display: block;
+		text-align: center;
+	}
+	ul.days {
+		height: 30px;
+		margin-bottom: 30px;
+		li {
+			float: left;
+			width: 38px;
+			height: 30px;
+			padding-top: 4px;
+			text-align: center;
+			background: transparent url(<%= asset_path 'dayButton.png' %>) no-repeat 0 0;
+			cursor: pointer;
+			margin: 0 1px;
+		}
+		li.selected {
+			background-position: 0 -34px;
+			height: 24px;
+			padding-top: 10px;
+		}
+	}
+	input[type="text"] {
+		width: 260px;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	input[type="submit"] {
+		width: 280px;
+		
+	}
+}
