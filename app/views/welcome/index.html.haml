@@ -8,7 +8,7 @@
   #form-backer
 
   / we need to stick in the rails form later
-  %form#signup
+  = form_tag '/auth/netflix', id: 'signup' do
 
     %label Send me a reminder email every:
     %ul.days
