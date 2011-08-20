@@ -18,3 +18,5 @@ pickle-email-*.html
 vendor/ruby
 config/database.yml
 .rvmrc
+config/env.rb
+.rbenv-version
