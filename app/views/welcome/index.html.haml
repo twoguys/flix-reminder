@@ -1,1 +1,26 @@
 %section.phone
+
+%section.explanation
+  %h2 Ever forget to change the order of your Netflix queue?
+  %h2 Does a movie show up you no longer want?
+
+- content_for :bottom do
+  #form-backer
+
+  / we need to stick in the rails form later
+  %form#signup
+
+    %label Send me a reminder email every:
+    %ul.days
+      %li.day Mon
+      %li.day Tue
+      %li.day.selected Wed
+      %li.day Thu
+      %li.day Fri
+      %li.day Sat
+      %li.day Sun
+
+    %label at this email address:
+    %input{type: "text", placeholder: "email address"}
+    
+    %input{type: "submit", value: "Authorize Netflix access"}

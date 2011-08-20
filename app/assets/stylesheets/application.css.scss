@@ -58,24 +58,21 @@ ol, ol li {
 /* Generic elements */
 
 html, body {
-	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-family: myriad-pro, "Helvetica Neue", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	font-weight: 300;
-	background-color: $background_color;
-	color: $text_color;
+	background-color: $light_grey;
+	color: $dark_grey;
 	text-rendering: optimizelegibility;
 }
 
 h1 {
 	font-size: 18px;
-	border-bottom: 1px solid #ccc;
-	text-transform: uppercase;
 	font-weight: 900;
-	padding-bottom: 5px;
 }
 
 a, a:visited {
-	color: $link_color;
+	color: $pink;
 	outline: none;
 }
 
@@ -83,5 +80,42 @@ strong {
 	font-weight: bold;
 }
 
-::-webkit-input-placeholder { color:#999; font-weight: 300; }
-input:-moz-placeholder { color:#999; font-weight: 300; }
+form {
+	input[type="text"], input[type="password"], textarea {
+		font-size: 16px;
+		padding: 10px;
+		@include rounded(3px);
+		border: 1px solid #ccc;
+		font-family: myriad-pro, "Helvetica Neue", Arial, Helvetica, sans-serif;
+		font-weight: 300;
+	}
+	input[type="submit"] {
+		text-align: center;
+		height: 42px;
+		font-family: myriad-pro, "Helvetica Neue", Arial, Helvetica, sans-serif;
+		font-weight: 500;
+		text-shadow: 0 1px 1px #fff;
+		font-size: 18px;
+		@include rounded(2px);
+		border: 1px solid #b64b58;
+		color: #781d1d;
+		background: #f77e7e;
+		background-image: -webkit-gradient(
+		    linear,
+		    left bottom,
+		    left top,
+		    color-stop(0, rgb(244,100,100)),
+		    color-stop(1, rgb(249,151,151))
+		);
+		background-image: -moz-linear-gradient(
+		    center bottom,
+		    rgb(244,100,100) 0%,
+		    rgb(249,151,151) 100%
+		);
+		cursor: pointer;
+		box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.3), 0 4px 0 0 #cb5454, 0 4px 4px 0 rgba(0,0,0,0.5);
+	}
+}
+
+::-webkit-input-placeholder { font-family: myriad-pro, "Helvetica Neue", Arial, Helvetica, sans-serif; color:#999; font-weight: 300; font-size: 16px; }
+input:-moz-placeholder { font-family: myriad-pro, "Helvetica Neue", Arial, Helvetica, sans-serif; color:#999; font-weight: 300; font-size: 16px;  }

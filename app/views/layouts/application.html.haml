@@ -16,13 +16,18 @@
     = javascript_include_tag "application"
     = javascript_include_tag "http://use.typekit.com/bxp4ehb.js"
     :javascript
-      Typekit.load();}catch(e){}
+      try{Typekit.load();}catch(e){}
       
     = stylesheet_link_tag "application"
   
   %body
   
-    %header
-      %h1#logo Flix Reminder
-      
-    = yield
+    %section.top
+      .inner
+        %header
+          %h1#logo Flix Reminder
+        = yield
+    
+    %section.bottom
+      .inner
+        = yield :bottom

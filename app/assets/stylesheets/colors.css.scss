@@ -1,2 +1,14 @@
-$red: #f15b5b
-$grey: #ececec
+$pink: #f15b5b;
+$light_grey: #ececec;
+$dark_grey: #343434;
+
+@mixin boxshadow($radius: 5px, $opacity: 0.2, $x: 0, $y: -5px) {
+	-webkit-box-shadow: $x $y $radius rgba(0,0,0,$opacity);
+	-moz-box-shadow: $x $y $radius rgba(0,0,0,$opacity);
+	box-shadow: $x $y $radius rgba(0,0,0,$opacity);
+}
+@mixin rounded($radius: 5px) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
