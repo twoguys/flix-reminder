@@ -1,10 +1,27 @@
 @import "colors.css.scss";
 
-section.top, section.bottom {
+section.top, section.bottom, section.login {
 	.inner {
 		width: 800px;
 		margin: 0 auto;
 		position: relative;
+	}
+}
+
+section.login {
+	padding: 5px 0;
+	background: $red;
+	text-align: right;
+	span, a {
+		color: $dark_red;
+		font-style: italic;
+		font-size: 14px;
+	}
+	a {
+		text-decoration: underline;
+	}
+	a:hover {
+		color: #fff;
 	}
 }
 		

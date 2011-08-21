@@ -1,8 +1,14 @@
 %section.phone
 
 %section.explanation
-  %h2 Ever forget to change the order of your Netflix queue?
-  %h2 Does a movie show up you no longer want?
+  %h2
+    Ever forget to change the order
+    %br
+    of your Netflix queue?
+  %h2
+    Does a movie show up
+    %br
+    you no longer want?
 
 - content_for :bottom do
   #form-backer
@@ -24,3 +30,10 @@
     %input{type: "text", placeholder: "email address"}
     
     %input{type: "submit", value: "Authorize Netflix access"}
+  
+    %p
+      We send you a weekly email of your upcoming movies.
+      %br
+      Happy with what you're getting next? Leave it.
+      %br
+      Prefer one of your other movies? Choose it.

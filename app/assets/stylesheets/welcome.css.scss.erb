@@ -8,13 +8,19 @@ section.phone {
 }
 
 section.explanation {
-	background: transparent url(<%= asset_path 'text.png' %>) no-repeat;
 	width: 356px;
-	height: 277px;
 	float: left;
-	margin: 70px 0 0 42px;
+	margin: 30px 0 0 42px;
 	h2 {
-		display: none;
+		background: transparent url(<%= asset_path 'flourish.png' %>) no-repeat 50% 100%;
+		padding-bottom: 30px;
+		margin-bottom: 20px;
+		font-size: 22px;
+		font-weight: 300;
+		font-style: italic;
+		color: #fff;
+		text-align: center;
+		line-height: 1.5em;
 	}
 }
 
@@ -22,9 +28,9 @@ section.explanation {
 	background: $light_grey;
 	width: 380px;
 	position: absolute;
-	top: -160px;
+	top: -260px;
 	left: 400px;
-	height: 160px;
+	height: 260px;
 	@include boxshadow;
 	-webkit-border-top-left-radius: 5px;
 	-webkit-border-top-right-radius: 5px;
@@ -36,12 +42,11 @@ section.explanation {
 
 form#signup {
 	position: absolute;
-	top: -130px;
+	top: -235px;
 	left: 450px;
 	width: 280px;
-	height: 100px;
 	label {
-		font-size: 20px;
+		font-size: 19px;
 		font-weight: 300;
 		font-style: italic;
 		margin-bottom: 10px;
@@ -75,5 +80,14 @@ form#signup {
 	input[type="submit"] {
 		width: 280px;
 		
+	}
+	::-webkit-input-placeholder { text-align: center; }
+	input:-moz-placeholder { text-align: center; }
+	
+	p {
+		font-style: italic;
+		margin-top: 30px;
+		text-align: center;
+		color: $light_grey - #444;
 	}
 }
