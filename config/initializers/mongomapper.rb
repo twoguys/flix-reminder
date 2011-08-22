@@ -1,0 +1,1 @@
+MongoMapper.database = "flixreminder-#{Rails.env}"
