@@ -1,7 +1,8 @@
 FlixReminder::Application.routes.draw do
     
-  match '/auth/:provider/callback' => 'users#create_or_login'
-  match '/auth/failure' => 'users#failure'
+  match '/auth/:provider/callback'  => 'users#create_or_login'
+  match '/auth/failure'             => 'users#failure'
+  match '/authorize_netflix'        => 'users#authorize_netflix'
 
   root :to => 'welcome#index'
   devise_for :users
