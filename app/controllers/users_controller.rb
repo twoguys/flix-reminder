@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def create_or_login
     omniauth = request.env["omniauth.auth"]
+    # render text: omniauth.inspect and return
     user = User.find_by_netflix_id(omniauth["uid"])
     if user.nil?
       user = User.new(netflix_id: omniauth["uid"])
@@ -10,9 +11,11 @@ class UsersController < ApplicationController
     user.last_name = omniauth["user_info"]["last_name"]
     user.email = session[:email]
     user.day_of_the_week = session[:day_of_the_week]
-    user.token = ActiveSupport::SecureRandom.hex(24)
-    user.oauth_token = omniauth["credentials"]["token"]
+    
+    user.token        = ActiveSupport::SecureRandom.hex(24)
+    user.oauth_token  = omniauth["credentials"]["token"]
     user.oauth_secret = omniauth["credentials"]["secret"]
+    
     user.save!
     
     session[:user_id] = user.id
@@ -49,7 +52,8 @@ class UsersController < ApplicationController
   end
   
   def send_email
-    FlixQueueMailer.send_queue(current_user,current_user.get_movies).deliver
+    FlixQueueMailer.send_queue(current_user, current_user.get_movies).deliver
+    redirect_to settings_path
   end
 
 end
