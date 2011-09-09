@@ -55,5 +55,11 @@ class UsersController < ApplicationController
     current_user.send_queue
     redirect_to settings_path
   end
+  
+  def adjust_queue
+    user = User.find_by_token(params[:token])
+    requested_item = user.send_movie_to_top(params[:netflix_title_ref])
+    render text: "#{requested_item.regular_title} moved to the top!"
+  end
 
 end
