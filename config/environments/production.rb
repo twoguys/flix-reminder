@@ -59,4 +59,6 @@ FlixReminder::Application.configure do
     :domain         => ENV['SENDGRID_DOMAIN']
   }
   
+  ActionController::Base.asset_host = ENV["ASSET_HOST"]
+  
 end

@@ -1,5 +1,5 @@
 class FlixQueueMailer < ActionMailer::Base
-  default from: "guys@flixreminder.com"
+  default from: "Flix Reminder <guys@flixreminder.com>"
 
   def send_queue(user, movies)
     @first = movies.first
