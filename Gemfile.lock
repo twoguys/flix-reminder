@@ -1,3 +1,13 @@
+PATH
+  remote: vendor/private_gems/flixy-0.1.0
+  specs:
+    flixy (0.1.0)
+      faraday
+      faraday_middleware
+      hashie
+      multi_xml
+      simple_oauth
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -81,6 +91,8 @@ GEM
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
       rack (>= 1.1.0, < 2)
+    faraday_middleware (0.6.5)
+      faraday (~> 0.6.0)
     ffi (1.0.9)
     gherkin (2.4.11)
       json (>= 1.4.6)
@@ -90,6 +102,7 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
+    hashie (1.1.0)
     heroku (2.4.2)
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
@@ -201,6 +214,7 @@ GEM
       ffi (>= 1.0.7)
       json_pure
       rubyzip
+    simple_oauth (0.1.5)
     sinatra (1.2.6)
       rack (~> 1.1)
       tilt (>= 1.2.2, < 2.0)
@@ -240,6 +254,7 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_girl_rails
+  flixy!
   haml (~> 3.1.2)
   haml-rails
   heroku

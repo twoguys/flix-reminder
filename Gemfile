@@ -33,3 +33,5 @@ gem 'oa-oauth'
 gem 'resque'
 gem 'devise'
 gem 'mm-devise'
+
+gem 'flixy', :path => "vendor/private_gems/flixy-0.1.0"
