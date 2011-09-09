@@ -9,7 +9,7 @@ FlixReminder::Application.routes.draw do
   match '/logout'                   => 'users#logout'
   match '/send_email'               => 'users#send_email',    as: "send_email"
 
-  match '/adjust_queue'             => 'users#adjust_queue',  as: "adjust_queue"
+  match '/t/:token/adjust_queue'    => 'users#adjust_queue',  as: "adjust_queue"
 
   root :to => 'welcome#index'
 end
