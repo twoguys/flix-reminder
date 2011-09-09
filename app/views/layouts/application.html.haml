@@ -28,6 +28,8 @@
           %span Already have an account?
           = link_to("Login", "/auth/netflix")
         - else
+          = link_to("Settings", settings_path)
+          &middot;
           = link_to("Logout", logout_path)
   
     %section.top
