@@ -1,0 +1,5 @@
+source "http://rubygems.org"
+
+# Specify your gem's dependencies in flixy.gemspec
+gem 'rake'
+gemspec

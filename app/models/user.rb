@@ -7,6 +7,8 @@ class User
   key :first_name,      String
   key :last_name,       String
   key :token,           String
+  key :oauth_token,     String
+  key :oauth_secret,    String
   key :day_of_the_week, Integer
   
   validates :email, presence: true, uniqueness: true
@@ -29,6 +31,14 @@ class User
 
   def name
     "#{first_name} #{last_name}"
+  end
+  
+  def get_movies
+    Flixy.configure do |config|
+      config.oauth_token        = self.oauth_token
+      config.oauth_token_secret = self.oauth_secret
+    end
+    
   end
 
 end

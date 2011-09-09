@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc6'
+gem 'rails', '3.1.0'
 
 group :assets do
-  gem 'sass-rails',         "~> 3.1.0.rc"
-  gem 'coffee-rails',       "~> 3.1.0.rc"
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'uglifier'
 end
 
@@ -32,3 +32,4 @@ gem 'oa-core'
 gem 'oa-oauth'
 gem 'resque'
 gem 'aasm'
+gem 'flixy', :path => "vendor/private_gems/flixy-0.1.0"

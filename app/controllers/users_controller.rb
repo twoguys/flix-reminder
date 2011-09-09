@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def create_or_login
     omniauth = request.env["omniauth.auth"]
+    raise omniauth.to_yaml
     user = User.find_by_netflix_id(omniauth["uid"])
     if user.nil?
       user = User.new(netflix_id: omniauth["uid"])
@@ -11,6 +12,8 @@ class UsersController < ApplicationController
     user.email = session[:email]
     user.day_of_the_week = session[:day_of_the_week]
     user.token = ActiveSupport::SecureRandom.hex(24)
+    user.oauth_token = ""
+    user.oauth_secret = ""
     user.save!
     
     session[:user_id] = user.id
