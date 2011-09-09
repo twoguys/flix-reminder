@@ -9,25 +9,16 @@ class User
   key :token,           String
   key :oauth_token,     String
   key :oauth_secret,    String
+  key :state,           String, default: "passive"
   key :day_of_the_week, Integer
   
   validates :email, presence: true, uniqueness: true
   validates :token, presence: true, uniqueness: true
   validates :day_of_the_week, presence: true
 
-  aasm_state :passive
-  aasm_state :active
-  aasm_state :suspended
-
-  aasm_initial_state :passive
-  
-  aasm_event :activate do
-    transitions :to => :active, :from => [:passive,:suspended]
-  end
-  
-  aasm_event :suspend do
-    transitions :to => :suspended, :from => :active
-  end
+  # aasm_state :passive
+  # aasm_state :active
+  # aasm_state :suspended
 
   def name
     "#{first_name} #{last_name}"
@@ -41,6 +32,16 @@ class User
     
     user = Flixy::User.find(self.netflix_id)
     user.queue(:disc, max_results: "5").items
+  end
+  
+  def send_queue
+    FlixQueueMailer.send_queue(self, self.get_movies).deliver
+  end
+  
+  def self.deliver_emails_for_day(day = Date.today.cwday)
+    users = User.find_all_by_day_of_the_week_and_state(day, "active")
+    users.each { |user| user.send_queue }
+    users.size
   end
 
 end

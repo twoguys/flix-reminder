@@ -15,11 +15,11 @@ class UsersController < ApplicationController
     user.token        = ActiveSupport::SecureRandom.hex(24)
     user.oauth_token  = omniauth["credentials"]["token"]
     user.oauth_secret = omniauth["credentials"]["secret"]
-    
+    user.state        = "active"
     user.save!
     
     session[:user_id] = user.id
-    user.activate!
+
     redirect_to settings_path
     
     rescue Exception => e
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   end
   
   def send_email
-    FlixQueueMailer.send_queue(current_user, current_user.get_movies).deliver
+    current_user.send_queue
     redirect_to settings_path
   end
 
