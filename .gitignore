@@ -21,3 +21,4 @@ config/database.yml
 .rvmrc
 config/env.rb
 .rbenv-version
+config/env.local.rb
