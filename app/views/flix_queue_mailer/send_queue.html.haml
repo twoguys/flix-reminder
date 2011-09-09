@@ -1,28 +1,25 @@
-%html
-  %head
-    = stylesheet_link_tag "email"
+= stylesheet_link_tag "email"
   
-  %body
-    #email
-  
-      %table.next
-        %thead
-          %tr
-            %th{colspan: 2} Coming Next
-        %tbody
-          %tr
-            %td.art= image_tag(@first.box_art.small_url)
-            %td.title= @first.short_title
+#email
 
-      - unless @movies.empty?
-        %table.rest
-          %thead
-            %tr
-              %th{colspan: 3} Send One of These Instead?
-          %tbody
-            - @movies.each do |movie|
-              %tr
-                %td.art= image_tag(movie.box_art.small_url)
-                %td.title
-                  .text= movie.short_title
-                  .button= link_to("Send this next", "#")
+  %table.next
+    %thead
+      %tr
+        %th{colspan: 2} Coming Next
+    %tbody
+      %tr
+        %td.art= image_tag(@first.box_art.small_url)
+        %td.title= @first.short_title
+
+  - unless @movies.empty?
+    %table.rest
+      %thead
+        %tr
+          %th{colspan: 3} Send One of These Instead?
+      %tbody
+        - @movies.each do |movie|
+          %tr
+            %td.art= image_tag(movie.box_art.small_url)
+            %td.title
+              .text= movie.short_title
+              .button= link_to("Send this next", "#")
