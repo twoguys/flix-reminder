@@ -1,0 +1,16 @@
+#settings
+  %h1 Settings
+  
+  = link_to("Send Email Now", "#")
+  
+  - form_for @user do |form|
+    %fieldset
+      %ul
+        %li
+          = form.label :email
+          = form.text_field :email
+        %li
+          = form.label :day_of_the_week, "The day you get your email"
+          = form.text_field :day_of_the_week
+        %li
+          = form.submit "Update"

@@ -14,18 +14,27 @@
     = csrf_meta_tag
     
     = javascript_include_tag "application"
-    = javascript_include_tag "http://use.typekit.com/bxp4ehb.js"
+    = #javascript_include_tag "http://use.typekit.com/bxp4ehb.js"
     :javascript
-      try{Typekit.load();}catch(e){}
+      //try{Typekit.load();}catch(e){}
       
     = stylesheet_link_tag "application"
   
   %body
   
+    %section.login
+      .inner
+        - if current_user.nil?
+          %span Already have an account?
+          = link_to("Login", "/auth/netflix")
+        - else
+          = link_to("Logout", logout_path)
+  
     %section.top
       .inner
         %header
           %h1#logo Flix Reminder
+          #email= @user.email if @user
         = yield
     
     %section.bottom

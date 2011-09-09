@@ -12,15 +12,21 @@
 
 - content_for :bottom do
   #form-backer
-
-  / we need to stick in the rails form later
-  = form_tag '/auth/netflix', id: 'signup' do
-
-    %p
-      1. We send you an email of your upcoming movies.
-      %br
-      2. Happy with what you're getting next? Leave it.
-      %br
-      3. Prefer one of your other movies? Choose it.
+  
+  = form_for @user, :url => '/authorize_netflix', html: {id: 'signup'} do |form|
+  
+    %label Send me a reminder email every:
+    %ul.days
+      %li.day{day: 1} Mon
+      %li.day{day: 2} Tue
+      %li.day.selected{day: 3} Wed
+      %li.day{day: 4} Thu
+      %li.day{day: 5} Fri
+      %li.day{day: 6} Sat
+      %li.day{day: 7} Sun
+    = form.hidden_field :day_of_the_week, value: 3, id: "day"
       
-    %input{type: "submit", value: "Sign in with Netflix"}
+    %label at this email address:
+    = form.text_field :email, value: session[:email], placeholder: "email address"
+    
+    %input{type: "submit", value: "Authorize Netflix access"}
