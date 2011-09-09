@@ -27,7 +27,7 @@ module Flixy
 
         builder.use Faraday::Request::UrlEncoded
 
-        # builder.use Faraday::Response::Logger
+        builder.use Faraday::Response::Logger
         builder.use Faraday::Response::Mashify
         builder.use Faraday::Response::ParseXml
       end

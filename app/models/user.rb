@@ -39,6 +39,8 @@ class User
       config.oauth_token_secret = self.oauth_secret
     end
     
+    user = Flixy::User.find(self.netflix_id)
+    user.queue(:disc, max_results: "5").items
   end
 
 end
