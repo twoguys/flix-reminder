@@ -5,7 +5,7 @@
   %table.next
     %thead
       %tr
-        %th{colspan: 2} Coming Next
+        %th{colspan: 2, style: "background:#5bb7f1;color:#fff;padding:2px 4px;text-align:left;"} Coming Next
     %tbody
       %tr
         %td.art= image_tag(@first.box_art.small_url)
@@ -21,5 +21,6 @@
           %tr
             %td.art= image_tag(movie.box_art.small_url)
             %td.title
-              .text= movie.short_title
-              .button= link_to("Send this next", "#")
+              .text{style: "font-weight:700;"}= movie.short_title
+              .button
+                = link_to("Send this next", "#", style:"display:block;width:105px;height:33px;background:transparent url(#{asset_path "emailSendButton.png"}) no-repeat 0 0;cursor:pointer;")
