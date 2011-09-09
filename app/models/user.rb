@@ -26,7 +26,8 @@ class User
   
   def get_movies
     flixy_user = self.flixy_user
-    flixy_user.queue(:disc, max_results: "5").items
+    movies = flixy_user.queue(:disc, max_results: "5").items
+    movies.reject { |movie| movie.position.nil? }
   end
   
   def send_movie_to_top(netflix_title_ref)
