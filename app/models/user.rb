@@ -1,7 +1,6 @@
 class User
   include MongoMapper::Document
-  include AASM
-
+  
   key :netflix_id,      String
   key :email,           String
   key :first_name,      String
@@ -19,6 +18,7 @@ class User
   # aasm_state :passive
   # aasm_state :active
   # aasm_state :suspended
+  # aasm_state :disabled
 
   def name
     "#{first_name} #{last_name}"
@@ -56,6 +56,10 @@ class User
     users = User.find_all_by_day_of_the_week_and_state(day, "active")
     users.each { |user| user.send_queue }
     users.size
+  end
+  
+  def active?
+    self.state == "active"
   end
 
 end

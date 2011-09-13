@@ -14,9 +14,9 @@
     = csrf_meta_tag
     
     = javascript_include_tag "application"
-    = #javascript_include_tag "http://use.typekit.com/bxp4ehb.js"
+    = javascript_include_tag "http://use.typekit.com/bxp4ehb.js"
     :javascript
-      //try{Typekit.load();}catch(e){}
+      try{Typekit.load();}catch(e){}
       
     = stylesheet_link_tag "application"
   
@@ -35,7 +35,7 @@
     %section.top
       .inner
         %header
-          %h1#logo Flix Reminder
+          = link_to("Flix Reminder", root_path, id: "logo")
         = yield
     
     %section.bottom

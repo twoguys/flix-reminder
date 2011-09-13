@@ -1,16 +1,25 @@
 #settings
-  %h1 Settings
+  %div= link_to("Send Email Now", send_email_path)
   
-  = link_to("Send Email Now", send_email_path)
-  
-  - form_for @user do |form|
-    %fieldset
+  %section#switch
+    %h3 Email Sending
+    #toggle{:class => current_user.active? ? "" : "off"}
+      #handle
+
+  #the-rest
+
+    %section#emails
+      %h3 To These Email Addresses
       %ul
-        %li
-          = form.label :email
-          = form.text_field :email
-        %li
-          = form.label :day_of_the_week, "The day you get your email"
-          = form.text_field :day_of_the_week
-        %li
-          = form.submit "Update"
+        %li= current_user.email
+
+    %section#days
+      %h3 On This Day
+      %ul
+        %li{day: 1} Mon
+        %li{day: 2} Tue
+        %li.selected{day: 3} Wed
+        %li{day: 4} Thu
+        %li{day: 5} Fri
+        %li{day: 6} Sat
+        %li{day: 7} Sun

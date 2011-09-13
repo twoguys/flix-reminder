@@ -60,5 +60,15 @@ class UsersController < ApplicationController
     user = User.find_by_token(params[:token])
     @movie = user.send_movie_to_top(params[:title_ref])
   end
+  
+  def update #ajax
+    return if current_user.nil?
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      render json: {success: true}
+    else
+      render json: {success: false, error: @user.errors.full_messages}
+    end
+  end
 
 end
