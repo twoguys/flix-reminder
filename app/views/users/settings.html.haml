@@ -1,5 +1,4 @@
 #settings
-  %div= link_to("Send Email Now", send_email_path)
   
   %section#switch
     %h3 Email Sending
@@ -7,6 +6,8 @@
       #handle
 
   #the-rest
+  
+    #cover{:style => current_user.active? ? "display:none;" : ""}
 
     %section#emails
       %h3 To These Email Addresses
@@ -23,3 +24,7 @@
         %li{day: 5} Fri
         %li{day: 6} Sat
         %li{day: 7} Sun
+  
+    %section#test
+      %h3 See It In Action
+      = link_to("Send me an email now", send_email_path)

@@ -20,7 +20,7 @@
       
     = stylesheet_link_tag "application"
   
-  %body
+  %body{:class => @landing ? "landing" : ""}
   
     %section.login
       .inner
@@ -38,6 +38,7 @@
           = link_to("Flix Reminder", root_path, id: "logo")
         = yield
     
-    %section.bottom
-      .inner
-        = yield :bottom
+    - if @landing
+      %section.bottom
+        .inner
+          = yield :bottom
