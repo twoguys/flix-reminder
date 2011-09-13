@@ -6,6 +6,7 @@ FlixReminder::Application.routes.draw do
     
   resources :users
   match '/settings'                 => 'users#settings'
+  match '/update'                   => 'users#update'
   match '/logout'                   => 'users#logout'
   match '/send_email'               => 'users#send_email',    as: "send_email"
 
