@@ -58,6 +58,12 @@ class User
     users.size
   end
   
+  def self.deliver_emails
+    users = User.all
+    users.each { |user| user.send_queue }
+    users.size
+  end
+  
   def active?
     self.state == "active"
   end
