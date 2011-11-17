@@ -2,7 +2,10 @@ class FlixQueueMailer < ActionMailer::Base
   default from: "Flix Reminder <guys@flixreminder.com>"
   default_url_options[:host] = ENV['ASSET_HOST']
 
-  def send_queue(user, movies)
+  def send_queue(user_id)
+    user        = User.find(user_id)
+    movies      = user.get_movies
+    
     @first      = movies.first
     @movies     = movies.slice(1..movies.length)
     @asset_host = ENV["ASSET_HOST"]

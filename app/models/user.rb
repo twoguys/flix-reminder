@@ -40,7 +40,7 @@ class User
   end
   
   def send_queue
-    FlixQueueMailer.send_queue(self, self.get_movies).deliver
+    FlixQueueMailer.enqueue.send_queue(self.id)
   end
   
   def flixy_user
